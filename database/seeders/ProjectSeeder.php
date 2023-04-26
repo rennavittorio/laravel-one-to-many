@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -17,6 +18,9 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+
+        $type_ids = Type::all()->pluck('id');
+
         for ($i = 0; $i < 10; $i++) {
 
             $proj = new Project();
@@ -33,6 +37,8 @@ class ProjectSeeder extends Seeder
             $proj->client_category = $faker->randomElement([
                 'food-and-beverage', 'fashion', 'tech'
             ]);
+
+            $proj->type_id = $faker->optional()->randomElement($type_ids);
 
             $proj->save();
         }

@@ -61,7 +61,7 @@
                 {{-- <td>{{ $project->description }}</td> --}}
                 <td><a href="{{ $project->website_link }}" target="_blank">{{ $project->website_link }}</a></td>
                 <td><a href="{{ $project->source_code_link }}" target="_blank">{{ $project->source_code_link }}</a></td>
-                <td>{{ $project->proj_category }}</td>
+                <td>{{ $project->type ? $project->type->type : '-'  }}</td>
                 <td>{{ $project->client }}</td>
                 <td>{{ $project->created_at->format('Y-m-d') }}</td>
                 <td>{{ $project->trashed() ? $project->deleted_at->format('Y-m-d') : '' }}</td>

@@ -20,4 +20,9 @@ class Project extends Model
         'client',
         'client_category'
     ];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
