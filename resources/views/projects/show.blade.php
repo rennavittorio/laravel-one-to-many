@@ -9,7 +9,7 @@
     <div class="card p-3">
         <div class="card-body">
             {{-- <h5 class="card-title">Title: {{ $project['title'] }}</h5> --}}
-            <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ $project['proj_category'] }}</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Category: <span class="badge bg-info">{{ $project->type ? $project->type->type : '-'  }}</span></h6>
             <p class="card-text">{{ $project['description'] }}</p>
             <div class="link-wrapper mb-3">
                 <a href="{{ $project['website_link'] }}" target="_blank" class="card-link">to website</a>
