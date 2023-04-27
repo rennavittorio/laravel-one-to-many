@@ -18,7 +18,8 @@ class Project extends Model
         'source_code_link',
         'proj_category',
         'client',
-        'client_category'
+        'client_category',
+        'type_id'
     ];
 
     public function type()

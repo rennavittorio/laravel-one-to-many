@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Type;
 use Illuminate\Http\Request; //serve per aggiungere la request all'index, per ricevere paramas
 use Illuminate\Support\Str;
 
@@ -52,7 +53,9 @@ class ProjectController extends Controller
             'tech' => 'tech',
         ];
 
-        return view('projects.create', compact('project_categories', 'client_categories'));
+        $project_types = Type::all();
+
+        return view('projects.create', compact('project_categories', 'client_categories', 'project_types'));
     }
 
     /**
@@ -107,7 +110,9 @@ class ProjectController extends Controller
             'tech' => 'tech',
         ];
 
-        return view('projects.edit', compact('project', 'project_categories', 'client_categories'));
+        $project_types = Type::all();
+
+        return view('projects.edit', compact('project', 'project_categories', 'client_categories', 'project_types'));
     }
 
     /**

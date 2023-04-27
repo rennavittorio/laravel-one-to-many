@@ -42,6 +42,7 @@ class UpdateProjectRequest extends FormRequest
                     'frontend', 'backend', 'fullstack'
                 ])
             ],
+            'type_id' => 'nullable|exists:types,id',
             'client' => 'required|string|max:100|min:2',
             'client_category' => [
                 'required',

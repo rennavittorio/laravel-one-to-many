@@ -11,15 +11,15 @@
         @csrf
         @method('PUT')
 
-        <div class="col-md-6">
+        <div class="col-4">
           <label for="title" class="form-label">title</label>
-          <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $project->title)}}" disabled>
+          <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $project->title)}}">
         </div>
         @error('title')
             <div class="text-danger">{{ $message }}</div>
         @enderror
 
-        <div class="col-6">
+        <div class="col-4">
             <label for="proj_category" class="form-label">proj_category</label>
             <select class="form-select @error('proj_category') is-invalid @enderror" 
             aria-label="Default select example" id="proj_category" name="proj_category" value="">
@@ -29,6 +29,20 @@
                 @endforeach
             </select>
             @error('proj_categories')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="col-4">
+            <label for="type_id" class="form-label">type_id</label>
+            <select class="form-select @error('type_id') is-invalid @enderror" 
+            aria-label="Default select example" id="type_id" name="type_id" value="">
+                <option>Open this select menu</option>
+                @foreach($project_types as $key=>$type)
+                    <option @selected(old('type_id') == $key) value="{{ $type->id }}"> {{ $type->type }} </option>
+                @endforeach
+            </select>
+            @error('type_id')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>

@@ -36,6 +36,7 @@ class StoreProjectRequest extends FormRequest
                     'frontend', 'backend', 'fullstack'
                 ])
             ],
+            'type_id' => 'nullable|exists:projects,type_id',
             'client' => 'required|string|max:100|min:2',
             'client_category' => [
                 'required',
